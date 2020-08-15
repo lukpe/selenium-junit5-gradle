@@ -1,5 +1,5 @@
 # selenium-junit5-gradle
-Simple Selenium framework using Junit5, built with Gradle
+Selenium framework utilizing Junit5, built with Gradle
 
 ## requirements
 * Java 11
