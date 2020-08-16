@@ -34,7 +34,8 @@ public class TestBase {
 
     private void initProp(){
         try{
-        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\test.properties");
+        FileInputStream file = new FileInputStream(System.getProperty("user.dir") +
+                "\\src\\main\\resources\\test.properties");
             prop = new Properties();
             prop.load(file);
         } catch (IOException e) {
