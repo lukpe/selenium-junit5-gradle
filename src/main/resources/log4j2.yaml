@@ -1,0 +1,24 @@
+Configuration:
+  status: warn
+  properties:
+    property:
+      name: path
+      value: ./build/logs
+  appenders:
+    File:
+      name: File
+      fileName: ${path}/log_${date:yyyy-MM-dd}.log
+      PatternLayout:
+        pattern: "%d{HH:mm:ss.SSS} [%t] %-5level - %logger{36} - %msg%n"
+
+  Loggers:
+    logger:
+      name: FileLog
+      level: trace
+      addivity: false
+      AppenderRef:
+        ref: File
+    Root:
+      level: trace
+      AppenderRef:
+        ref: File

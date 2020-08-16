@@ -1,6 +1,8 @@
 package org.test.tools;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.OutputType;
@@ -12,8 +14,19 @@ import java.lang.reflect.Field;
 
 public class TestResultExtension implements TestWatcher {
 
+    private static final Logger logger = LogManager.getLogger(TestResultExtension.class);
+
+    @Override
+    public void testSuccessful(ExtensionContext context) {
+        logger.trace("[" + context.getRequiredTestClass().getName() + "] " +
+                context.getRequiredTestMethod().getName() + " - PASSED");
+    }
+
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
+        logger.error("[" + context.getRequiredTestClass().getName() + "] " +
+                context.getRequiredTestMethod().getName() + " - FAILED");
+
         try {
             Object test = context.getRequiredTestInstance();
             Field d = test.getClass().getDeclaredField("driver");
