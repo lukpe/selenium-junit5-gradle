@@ -10,14 +10,10 @@ Selenium framework utilizing Junit5, built with Gradle
 [test.properties]: src/main/resources/test.properties
 * `git clone https://github.com/lukpe/selenium-junit5-gradle.git`
 * `gradlew clean test -Dbrowser={browser}`
-* Page `url`, `browser` and `timeout` are set in [test.properties]
 
-| optional parameters |
-|---------------------|
-|`-Dbrowser=firefox`|
-|`-Dbrowser=chrome`|
-
-* If no parameter: `browser` taken from [test.properties] 
+##### configuration:
+* If no `-Dbrowser=` parameter then `browser` is taken from [test.properties] 
+* Page `url` & `timeout` are also set in [test.properties]
 
 ## highlights
 * [JUnit5](https://junit.org/junit5/)
