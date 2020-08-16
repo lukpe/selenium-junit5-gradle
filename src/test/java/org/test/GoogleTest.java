@@ -32,11 +32,11 @@ public class GoogleTest extends TestBase {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/search_phrases.csv", delimiterString = ";")
+    @CsvFileSource(resources = "/search_phrases.csv", numLinesToSkip = 1, delimiterString = ";")
     @DisplayName("Search Google with given phrases")
-    public void searchTest(String phrase){
+    public void searchTest(String phrase, String result){
         gp.search(phrase);
-        assertTrue(gp.checkResults(phrase));
+        assertTrue(gp.checkResults(result));
     }
 
     @AfterAll
