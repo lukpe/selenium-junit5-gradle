@@ -1,6 +1,5 @@
 package org.test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,10 +19,8 @@ public class GoogleTest extends TestBase {
 
     @BeforeAll
     public void setUp(){
-        WebDriverManager.chromedriver().setup();
         driver = initDriver();
         gp = new GooglePage(driver);
-
     }
 
     @BeforeEach

@@ -7,9 +7,17 @@ Selenium framework utilizing Junit5, built with Gradle
 * Chrome and/or Firefox
 
 ## how to run
+[test.properties]: src/main/resources/test.properties
 * `git clone https://github.com/lukpe/selenium-junit5-gradle.git`
-* `gradlew clean test`
-* Page `url`, `browser` and `timeout` are set in [test.properties](src/main/resources/test.properties)
+* `gradlew clean test -Dbrowser={browser}`
+* Page `url`, `browser` and `timeout` are set in [test.properties]
+
+| optional parameters |
+|---------------------|
+|`-Dbrowser=firefox`|
+|`-Dbrowser=chrome`|
+
+* If no parameter: `browser` taken from [test.properties] 
 
 ## highlights
 * [JUnit5](https://junit.org/junit5/)

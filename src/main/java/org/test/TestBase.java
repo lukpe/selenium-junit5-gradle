@@ -1,5 +1,6 @@
 package org.test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,16 +16,24 @@ public class TestBase {
 
     public WebDriver initDriver(){
         initProp();
-        String browser = prop.getProperty("browser").toLowerCase();
+
+        String browser = System.getProperty("browser");
+        if(browser == null){
+            browser = prop.getProperty("browser").toLowerCase();
+        }
+
         switch (browser) {
             case "chrome":
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
             case "firefox":
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
             default:
-                System.out.println("W=Invalid browser name, selecting Chrome");
+                System.out.println("Invalid browser name, selecting Chrome");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
         long timeOut = Long.parseLong(prop.getProperty("timeout"));
