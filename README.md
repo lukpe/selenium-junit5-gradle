@@ -13,7 +13,7 @@ Selenium framework utilizing Junit5, built with Gradle
 
 ## configuration
 * Supported browsers: `chrome` `firefox` `edge`
-* If no `-Dbrowser=` then `browser` is taken from [test.properties]
+* If no `-Dbrowser` then `browser` is taken from [test.properties]
 * If no `-Dremote` (e.g. `http://localhost:4444/wd/hub`) then test will run locally
 * Page `url` & default `timeout` are also set in [test.properties]
 
