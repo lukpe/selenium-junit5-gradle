@@ -12,8 +12,9 @@ Selenium framework utilizing Junit5, built with Gradle
 * `gradlew clean test -Dbrowser={browser}`
 
 ##### configuration:
+* Supported browsers: `chrome` `firefox` `edge`
 * If no `-Dbrowser=` parameter then `browser` is taken from [test.properties] 
-* Page `url` & `timeout` are also set in [test.properties]
+* Page `url` & default `timeout` are also set in [test.properties]
 
 ## highlights
 * [JUnit5](https://junit.org/junit5/)
