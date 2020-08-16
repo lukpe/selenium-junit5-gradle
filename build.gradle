@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
 }
 
 repositories {
@@ -28,4 +27,5 @@ test {
         events "passed", "skipped", "failed"
     }
     systemProperty "browser", System.getProperty("browser")
+    systemProperty "remote", System.getProperty("remote")
 }
