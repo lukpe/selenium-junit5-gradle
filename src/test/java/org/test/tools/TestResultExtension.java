@@ -19,13 +19,15 @@ public class TestResultExtension implements TestWatcher {
     @Override
     public void testSuccessful(ExtensionContext context) {
         logger.trace("[" + context.getRequiredTestClass().getName() + "] " +
-                context.getRequiredTestMethod().getName() + " - PASSED");
+                context.getRequiredTestMethod().getName() +
+                context.getDisplayName() + " - PASSED");
     }
 
     @Override
     public void testFailed(ExtensionContext context, Throwable cause) {
         logger.error("[" + context.getRequiredTestClass().getName() + "] " +
-                context.getRequiredTestMethod().getName() + " - FAILED");
+                context.getRequiredTestMethod().getName() +
+                context.getDisplayName() + " - FAILED");
 
         try {
             Object test = context.getRequiredTestInstance();
