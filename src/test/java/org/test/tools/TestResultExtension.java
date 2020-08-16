@@ -28,6 +28,7 @@ public class TestResultExtension implements TestWatcher {
         logger.error("[" + context.getRequiredTestClass().getName() + "] " +
                 context.getRequiredTestMethod().getName() +
                 context.getDisplayName() + " - FAILED");
+        logger.error(cause.getLocalizedMessage());
 
         try {
             Object test = context.getRequiredTestInstance();
