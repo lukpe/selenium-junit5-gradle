@@ -15,5 +15,6 @@ Selenium framework utilizing Junit5, built with Gradle
 * [JUnit5](https://junit.org/junit5/)
 * [Page Factory](https://github.com/SeleniumHQ/selenium/wiki/PageFactory)
 * [webdrivermanager](https://github.com/bonigarcia/webdrivermanager)
-* screenshots on failure -> `./screenshots` folder
-* configuration file -> `./test.properties`
+* [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) logs -> `./build/logs`
+* screenshots on test fail -> `./build/screenshots`
+* configuration file -> `./src/main/resources/test.properties`
