@@ -37,7 +37,7 @@ public class TestResultExtension implements TestWatcher {
             String filename = "scrShot_" + context.getRequiredTestClass().getName() + "_" +
                     context.getDisplayName().replace(" ","_") +
                     "_" + System.currentTimeMillis() + ".png";
-            FileUtils.copyFile(scrShot, new File (System.getProperty("user.dir") + "\\screenshots\\" + filename));
+            FileUtils.copyFile(scrShot, new File (System.getProperty("user.dir") + "\\build\\screenshots\\" + filename));
         } catch (Exception e) {
             e.printStackTrace();
         }
