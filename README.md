@@ -9,7 +9,7 @@ Selenium framework utilizing Junit5, built with Gradle
 ## how to run
 [test.properties]: src/main/resources/test.properties
 * `git clone https://github.com/lukpe/selenium-junit5-gradle.git`
-* `gradlew clean test -Dbrowser={browser} -Dremote`
+* `gradlew clean test -Dbrowser={browser} -Dremote={grid_url}`
 
 ## configuration
 * Supported browsers: `chrome` `firefox` `edge`
