@@ -57,7 +57,7 @@ public class TestBase {
                 e.printStackTrace();
             }
         }
-        long timeOut = Long.parseLong(prop.getProperty("timeout"));
+        int timeOut = Integer.parseInt(prop.getProperty("timeout"));
         driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
         return driver;
     }
