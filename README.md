@@ -17,6 +17,7 @@ Selenium framework utilizing Junit5, built with Gradle
 * Page `url` & default `timeout` are also set in [test.properties]
 
 ## main features
+* [Gradle Build Tool](https://gradle.org/)
 * [JUnit5](https://junit.org/junit5/)
 * [Page Factory](https://github.com/SeleniumHQ/selenium/wiki/PageFactory)
 * [webdrivermanager](https://github.com/bonigarcia/webdrivermanager)
