@@ -1,6 +1,11 @@
 # Project exclude paths
+bin
 build
-screenshots
 /.idea
 *.iml
 .gradle
+
+# Eclipse
+.settings/
+.classpath
+.project
