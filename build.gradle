@@ -29,3 +29,5 @@ test {
     systemProperty "browser", System.getProperty("browser")
     systemProperty "remote", System.getProperty("remote")
 }
+
+defaultTasks 'clean', 'test'

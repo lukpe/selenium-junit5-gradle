@@ -3,13 +3,12 @@ Selenium framework utilizing Junit5, built with Gradle
 
 ## requirements
 * Java 11
-* Gradle 6.6 or later
-* Chrome and/or Firefox
+* Chrome/Firefox/Edge web browser
 
 ## how to run
 [test.properties]: src/main/resources/test.properties
 * `git clone https://github.com/lukpe/selenium-junit5-gradle.git`
-* `gradlew clean test -Dbrowser={browser} -Dremote={grid_url}`
+* `gradlew -Dbrowser={browser} -Dremote={grid_url}`
 
 ## configuration
 * Supported browsers: `chrome` `firefox` `edge`
