@@ -1,8 +1,6 @@
 package org.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -18,9 +16,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-
-    private static final Logger logger = LogManager.getLogger(TestBase.class);
-
     private WebDriver driver;
 
     public WebDriver initDriver() {
@@ -46,9 +41,7 @@ public class TestBase {
                     driver = new EdgeDriver();
                     break;
                 default:
-                    logger.warn("Invalid browser name, selecting Chrome");
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    throw new IllegalArgumentException("Invalid browser name");
             }
         } else {
             DesiredCapabilities dc = new DesiredCapabilities();
