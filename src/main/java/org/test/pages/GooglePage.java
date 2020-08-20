@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class GooglePage {
-    public WebDriver driver;
+    private final WebDriver driver;
 
     public GooglePage(WebDriver driver){
         this.driver = driver;
