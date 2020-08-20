@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(TestResultExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class GoogleTest extends TestBase {
+class GoogleTest extends TestBase {
     public WebDriver driver;
     private GooglePage gp;
 
@@ -25,13 +25,13 @@ public class GoogleTest extends TestBase {
 
     @BeforeEach
     public void getHomePage(){
-        driver.get(prop.getProperty("url"));
+        driver.get(getProp("url"));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/search_phrases.csv", numLinesToSkip = 1, delimiterString = ";")
     @DisplayName("Search Google with given phrases")
-    public void searchTest(String phrase, String result){
+    void searchTest(String phrase, String result){
         gp.search(phrase);
         assertTrue(gp.checkResults(result));
     }

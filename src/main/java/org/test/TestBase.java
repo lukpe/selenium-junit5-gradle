@@ -1,6 +1,8 @@
 package org.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,15 +18,15 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    public WebDriver driver;
-    public Properties prop;
+
+    private static final Logger logger = LogManager.getLogger(TestBase.class);
+
+    private WebDriver driver;
 
     public WebDriver initDriver() {
-        initProp();
-
         String browser = System.getProperty("browser");
         if (browser.isEmpty()) {
-            browser = prop.getProperty("browser");
+            browser = getProp("browser");
         }
         browser = browser.toLowerCase();
 
@@ -44,7 +46,7 @@ public class TestBase {
                     driver = new EdgeDriver();
                     break;
                 default:
-                    System.out.println("Invalid browser name, selecting Chrome");
+                    logger.warn("Invalid browser name, selecting Chrome");
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
@@ -57,19 +59,20 @@ public class TestBase {
                 e.printStackTrace();
             }
         }
-        int timeOut = Integer.parseInt(prop.getProperty("timeout"));
+        int timeOut = Integer.parseInt(getProp("timeout"));
         driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
         return driver;
     }
 
-    private void initProp() {
-        try {
-            FileInputStream file = new FileInputStream(System.getProperty("user.dir") +
-                    "\\src\\main\\resources\\test.properties");
-            prop = new Properties();
+    public String getProp(String name) {
+        String propFile = System.getProperty("user.dir") + "\\src\\main\\resources\\test.properties";
+        try (FileInputStream file = new FileInputStream(propFile)) {
+            Properties prop = new Properties();
             prop.load(file);
+            return prop.getProperty(name);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
