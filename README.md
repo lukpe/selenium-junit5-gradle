@@ -3,7 +3,7 @@ Selenium framework utilizing Junit5, built with Gradle
 
 ## requirements
 * Java 11
-* Chrome/Firefox/Edge web browser
+* Web browser
 
 ## how to run
 [test.properties]: src/main/resources/test.properties
