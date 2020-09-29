@@ -9,18 +9,18 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class GooglePage {
+public class DuckDuckGoPage {
     private final WebDriver driver;
 
-    public GooglePage(WebDriver driver){
+    public DuckDuckGoPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//input[@name='q']")
+    @FindBy(id = "search_form_input_homepage")
     WebElement searchField;
 
-    @FindBy(xpath = "//h3")
+    @FindBy(className = "result__a")
     List<WebElement> results;
 
     public void search(String phrase){

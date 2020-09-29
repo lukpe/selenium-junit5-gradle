@@ -5,22 +5,22 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
-import org.test.pages.GooglePage;
+import org.test.pages.DuckDuckGoPage;
 import org.test.tools.TestResultExtension;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(TestResultExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GoogleTest extends TestBase {
+class SearchTest extends TestBase {
     public WebDriver driver;
-    private GooglePage gp;
+    private DuckDuckGoPage ddg;
 
 
     @BeforeAll
-    public void setUp(){
+    public void setUp() {
         driver = initDriver();
-        gp = new GooglePage(driver);
+        ddg = new DuckDuckGoPage(driver);
     }
 
     @BeforeEach
@@ -31,9 +31,9 @@ class GoogleTest extends TestBase {
     @ParameterizedTest
     @CsvFileSource(resources = "/search_phrases.csv", numLinesToSkip = 1, delimiterString = ";")
     @DisplayName("Search Google with given phrases")
-    void searchTest(String phrase, String result){
-        gp.search(phrase);
-        assertTrue(gp.checkResults(result));
+    void searchTest(String phrase, String result) {
+        ddg.search(phrase);
+        assertTrue(ddg.checkResults(result));
     }
 
     @AfterAll
